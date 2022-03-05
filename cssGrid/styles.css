@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+}
+
+.container {
+  height: 100vh;
+  padding: 1px;
+  display: grid;
+  grid-template: 80px 1fr 200px 80px / 1fr;
+  grid-template-areas:
+    "header"
+    "main"
+    "area"
+    "footer";
+
+  gap: 5px;
+}
+
+div {
+  padding: 30px;
+  color: white;
+  font-weight: bold;
+}
+/* Part 1: Mobile first */
+.header {
+  background-color: rgb(110, 185, 247);
+  color: white;
+  grid-area: header;
+}
+
+.main {
+  background-color: rgb(66, 216, 66);
+  color: white;
+  grid-area: main;
+}
+
+.area {
+  background-color: rgb(216, 122, 216);
+  color: white;
+  grid-area: area;
+}
+
+.footer {
+  background-color: blue;
+  color: white;
+  grid-row: 4;
+  grid-area: footer;
+}
+
+/* Part 2: Desktop */
+@media (min-width: 670px) {
+  .container {
+    grid-template: 1fr 200px 80px / 250px 1fr;
+    grid-template-areas:
+      "header main"
+      "header area"
+      "header footer";
+  }
+}
+
+/* Part 3: Extra large windows */
+@media (min-width: 1036px) {
+  .container {
+    grid-template: 1fr 80px / 1fr 800px 1fr;
+    grid-template-areas:
+      "header main area"
+      "header footer area";
+  }
+}
